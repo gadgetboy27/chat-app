@@ -29,10 +29,10 @@ class App extends React.Component {
   }
   onSendMessage = (message) => {
     this.drone.publish({
-      room: 'observable-room',
+      room: 'devacademy-room',
       message
     })
-    const room = this.drone.subscribe('observable-room')
+    const room = this.drone.subscribe('devacademy-room')
   room.on('data', (data, member) => {
     const messages = this.state.messages
     messages.push({member, text: data})
