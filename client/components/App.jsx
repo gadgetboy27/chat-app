@@ -27,13 +27,17 @@ class App extends React.Component {
       color: randomColor()
     }
   }
+  // https://www.scaledrone.com/docs/api-clients/observable-rooms
   onSendMessage = (message) => {
     this.drone.publish({
-      room: 'devacademy-room',
+      room: 'observable-room',
       message
     })
-    const room = this.drone.subscribe('devacademy-room')
-  room.on('data', (data, member) => {
+    const room = this.drone.subscribe('observable-room')
+    // member here is undefined
+    room.on('message', message => {
+      const {data, id, timestamp, clientId, member} = message;
+    console.log(message)
     const messages = this.state.messages
     messages.push({member, text: data})
     this.setState({messages})
@@ -47,12 +51,13 @@ class App extends React.Component {
   }
   //What we see onscreen from the Input method
   render() {
+   // this.state.messages member[0] is undefined
     return (
       <div className='App'>
         <div className= 'App-header'>
           <h1>Chat Me Up</h1>
         </div>
-        <Messages
+        <Messages     
         messages={this.state.messages}
         currentMember={this.state.member}
         />
