@@ -29,8 +29,13 @@
   .Messages-message {
     display: flex;
     margin-top: 10px;
+    animation-name: james;
+    animation-duration: 850ms;
   }
-  
+  @keyframes james {  
+    from {opacity: 0}
+    to {opacity: 1}
+  }
   .Messages-message.currentMember {
     justify-content: flex-start;
     flex-direction: row-reverse;

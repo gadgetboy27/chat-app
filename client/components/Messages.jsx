@@ -1,5 +1,5 @@
 import React from 'react'
-
+import App from './App'
 
 class Messages extends React.Component {
     render() {
@@ -7,25 +7,26 @@ class Messages extends React.Component {
         //1st item in message has undefined member
         // console.log(messages)
         return (
-            <ul className='Messages-list'>
-                {messages.map(m => this.renderMessage(m))}
-            </ul>
+        <ul 
+            className='Messages-list'>
+            {messages.map(m => this.renderMessage(m))}
+        </ul>
         )
     }
 // Member is not defined
-renderMessage(message) {
+renderMessage = (message) => {
     // console.log(message)
     const {member, text} = message
     const {currentMember} = this.props
     // console.log(member, currentMember)
-    const messageFromMe = member.id === currentMember.id
-    const className = messageFromMe ?
+    // const messageFromMe = member.id === currentMember.id
+    const className = (member.id === currentMember.id) ?
         'Messages-message currentMember' : 'Messages-message'
 return (
-    <li className = {className}>
+    <li key className = {className}>
         <span 
             className='avatar'
-            style={{backgroundColor: member.clientData.color}}
+            style={{ backgroundColor: member.clientData.color }}
             />
         <div className='Message-content'>
             <div className='username'>

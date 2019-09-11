@@ -21,7 +21,11 @@ export function randomName() {
     const noun = nouns[Math.floor(Math.random() * nouns.length)]
     return adjective + noun
   }
-  
+  export function randomAvatar() {
+    const avatars = ["fas fa-frown", "fab fa-algolia", "fab fa-500px", "fab fa-android"]
+    const avatar = avatars[Math.floor(Math.random() * avatars.length)]
+    return avatar
+  }
   export function randomColor() {
     return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16)
 }

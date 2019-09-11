@@ -1,7 +1,7 @@
 import React from 'react'
 import Messages from './Messages'
 
-import { randomColor, randomName } from '../utils/random'
+import { randomColor, randomName, randomAvatar } from '../utils/random'
 import Input from './Input'
 
 //Initial state when app starts
@@ -23,6 +23,7 @@ class App extends React.Component {
   state = {
     messages: [],
     member: {
+      avatar: randomAvatar(),
       username: randomName(),
       color: randomColor()
     }
@@ -42,12 +43,6 @@ class App extends React.Component {
     messages.push({member, text: data})
     this.setState({messages})
   })
-    // const messages = this.state.messages
-    // messages.push({
-    //   text: message,
-    //   member: this.state.member
-    // })
-    // this.setState({ messages: messages })
   }
   //What we see onscreen from the Input method
   render() {

@@ -15,6 +15,8 @@ class Input extends React.Component {
         this.setState({text: ''})
         this.props.onSendMessage(this.state.text)
     }
+
+    
     //Here we keep track of the currently entered text
 render() {
     return (
