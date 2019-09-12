@@ -1,5 +1,4 @@
 import React from 'react'
-import App from './App'
 
 class Messages extends React.Component {
     render() {
@@ -18,15 +17,15 @@ renderMessage = (message) => {
     // console.log(message)
     const {member, text} = message
     const {currentMember} = this.props
-    // console.log(member, currentMember)
+    console.log(member, currentMember)
     // const messageFromMe = member.id === currentMember.id
     const className = (member.id === currentMember.id) ?
         'Messages-message currentMember' : 'Messages-message'
 return (
-    <li key className = {className}>
+    <li className = {className}>
         <span 
             className='avatar'
-            style={{ backgroundColor: member.clientData.color }}
+            style={{background: member.clientData.color}}
             />
         <div className='Message-content'>
             <div className='username'>

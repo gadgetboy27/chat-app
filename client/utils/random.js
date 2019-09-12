@@ -1,5 +1,5 @@
 export function randomName() {
-    const adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark",
+    const adjectives = ["freeky", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark",
     "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter",
     "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue",
     "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "long",
@@ -7,7 +7,8 @@ export function randomName() {
     "rough", "still", "small", "sparkling", "throbbing", "shy", "wandering",
     "withered", "wild", "black", "young", "holy", "solitary", "fragrant",
     "aged", "snowy", "proud", "floral", "restless", "divine", "polished",
-    "ancient", "purple", "lively", "nameless", "shadow", 'airy', 'adamant', 'arcadian', 'comely']
+    "ancient", "purple", "lively", "nameless", "shadow", 'airy', 'adamant', 'arcadian', 'comely', 'loudish',
+  'likely', 'peaceful', 'colourful', 'restful', 'whybe', 'maybe', 'dammit']
     const nouns = ["waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning",
     "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter",
     "forest", "hill", "cloud", "meadow", "sun", "glade", "bird", "brook",
@@ -22,7 +23,7 @@ export function randomName() {
     return adjective + noun
   }
   export function randomAvatar() {
-    const avatars = ["fas fa-frown", "fab fa-algolia", "fab fa-500px", "fab fa-android"]
+    const avatars = ["Let me fly  you to the moon and back", "I'd like to unzip your files", "Your outfit would look better on the floor of my bedroom", "I love the way you use your dock"]
     const avatar = avatars[Math.floor(Math.random() * avatars.length)]
     return avatar
   }

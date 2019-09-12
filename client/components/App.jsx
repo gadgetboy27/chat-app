@@ -37,7 +37,7 @@ class App extends React.Component {
     const room = this.drone.subscribe('observable-room')
     // member here is undefined
     room.on('message', message => {
-      const {data, id, timestamp, clientId, member} = message;
+      const {data, id, timestamp, clientId, member} = message
     console.log(message)
     const messages = this.state.messages
     messages.push({member, text: data})
@@ -51,6 +51,9 @@ class App extends React.Component {
       <div className='App'>
         <div className= 'App-header'>
           <h1>Chat Me Up</h1>
+          {/* <div className='Header-img'>
+            <img src='../images/lips-kiss.jpeg'></img>
+          </div> */}
         </div>
         <Messages     
         messages={this.state.messages}

@@ -9,13 +9,17 @@ class Input extends React.Component {
     onChange(e) {
         this.setState({text: e.target.value})
     }
-    //This handles sendinf the message
+    //This handles sending the message
     onSubmit(e) {
         e.preventDefault()
         this.setState({text: ''})
         this.props.onSendMessage(this.state.text)
     }
 
+    // onClick(e) {
+    //     this.props.setState(this.State.props)
+
+    // }
     
     //Here we keep track of the currently entered text
 render() {
