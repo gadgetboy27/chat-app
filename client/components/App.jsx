@@ -4,22 +4,24 @@ import Messages from './Messages'
 import { randomColor, randomName, randomAvatar } from '../utils/random'
 import Input from './Input'
 
-//Initial state when app starts
+// Initial state when app starts
 class App extends React.Component {
   constructor () {
     super()
-    this.drone = new window.Scaledrone('22LIFPx7BxXo3U40', {data: this.state.member
-  })
-  this.drone.on('open', error => {
-    if (error) {
-      return console.error(error)
-    }
-    const member = {...this.state.member}
-    member.id = this.drone.clientId
-    this.setState({member})
-  })
+    this.drone = new window.Scaledrone('22LIFPx7BxXo3U40', { data: this.state.member
+    })
+
+
+    this.drone.on('open', error => {
+      if (error) {
+        return console.error(error)
+      }
+      const member = { ...this.state.member }
+      member.id = this.drone.clientId
+      this.setState({ member })
+    })
   }
-  
+
   state = {
     messages: [],
     member: {
@@ -37,16 +39,16 @@ class App extends React.Component {
     const room = this.drone.subscribe('observable-room')
     // member here is undefined
     room.on('message', message => {
-      const {data, id, timestamp, clientId, member} = message
-    console.log(message)
-    const messages = this.state.messages
-    messages.push({member, text: data})
-    this.setState({messages})
-  })
+      const { data, id, timestamp, clientId, member } = message
+      console.log(message)
+      const messages = this.state.messages
+      messages.push({ member, text: data })
+      this.setState({ messages })
+    })
   }
-  //What we see onscreen from the Input method
-  render() {
-   // this.state.messages member[0] is undefined
+  // What we see onscreen from the Input method
+  render () {
+    // this.state.messages member[0] is undefined
     return (
       <div className='App'>
         <div className= 'App-header'>
@@ -55,16 +57,16 @@ class App extends React.Component {
             <img src='../images/lips-kiss.jpeg'></img>
           </div> */}
         </div>
-        <Messages     
-        messages={this.state.messages}
-        currentMember={this.state.member}
+        <Messages
+          messages={this.state.messages}
+          currentMember={this.state.member}
         />
         <Input
-        onSendMessage={this.onSendMessage}
-        />         
+          onSendMessage={this.onSendMessage}
+        />
       </div>
     )
   }
 }
 export default App
-//An App component which will manage sending and receiving messages and rendering the inner components.
+// An App component which will manage sending and receiving messages and rendering the inner components.
